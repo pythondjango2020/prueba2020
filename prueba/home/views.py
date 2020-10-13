@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .forms import *
 # Create your views here.
 from django.shortcuts import render
 
@@ -8,6 +8,7 @@ def vista_base(request):
     return render(request, 'base.html')
 
 def vista_index(request):
+    
     return render(request, 'index.html')
 
 def vista_login(request):
