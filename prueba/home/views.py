@@ -1,9 +1,6 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render
-
-# Create your views here.
 def vista_base(request):
     return render(request, 'base.html')
 
@@ -15,3 +12,9 @@ def vista_login(request):
 
 def vista_register(request):
     return render(request, 'register.html')
+
+def vista_forms(request):
+    return render(request, 'formulario.html')
+
+def vista_tienda(request):
+    return render(request, 'tienda.html')
