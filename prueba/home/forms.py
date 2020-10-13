@@ -2,12 +2,15 @@ from django import forms
 from .models import *
 
 tipo = (
+    ('Seleccione el tipo','Seleccione el tipo'),
     ('gato','gato'),
     ('Perros','Perros'),
     ('Pajaros','Pajaros'),
     ('Peces','Peces'),
 )
+
 raza=(
+    ('Seleccione la raza','Seleccione la raza'),
     ('Huski','Huski siberiano'),
     ('Golden','Golden retriever'),
     ('caniche','caniche'),
@@ -17,9 +20,10 @@ raza=(
     ('Pajaro','periquillo'),
     ('PezG', 'pez globo'),
     ('PezP', 'pez payaso'),
-    
 )
+
 años =(
+    ('Años o meses de la mascota','Años o meses de la mascota'),
     ('1 a 5','Entre 1 y 5 meses'),
     ('6 a 12','Entre 6 y 12 meses'),
     ('1 a 4','Entre 1 y 4 años'),
@@ -30,8 +34,8 @@ años =(
 )
 
 class citaform(forms.Form):
-    mascota =  forms.CharField(label="Nombre", required=True, widget=forms.TextInput(
-        attrs={'class':'form-control', 'placeholder':'Escribe tu nombre'}
+    mascota =  forms.CharField(label="mascota", required=True, widget=forms.TextInput(
+        attrs={'class':'form-control', 'placeholder':'Nombre de la mascota'}
     ), min_length=3, max_length=100)
 
     tipo = forms.ChoiceField(choices= tipo,label="tipo", required=True, widget=forms.Select(
@@ -42,7 +46,7 @@ class citaform(forms.Form):
         attrs={'class':'form-control'}
     ))
 
-    años = forms.CharField(label="años", required=True, widget=forms.Select(
+    años = forms.ChoiceField(choices= años,label="años", required=True, widget=forms.Select(
         attrs={'class':'form-control'}
     ))
 
@@ -61,11 +65,3 @@ class citaform(forms.Form):
     hora = forms.TimeField(label="hora", required=True, widget=forms.DateInput(
         attrs={'class':'form-control', 'type':'time'}
     ))
-    mascota =  forms.CharField(label="Nombre", required=True, widget=forms.TextInput)
-    tipo = forms.ChoiceField(choices= tipo,label="tipo", required=True, widget=forms.Select)
-    raza = forms.ChoiceField(choices= raza,label="raza", required=True, widget=forms.Select)
-    años = forms.ChoiceField(choices= años,label="años", required=True, widget=forms.Select)
-    dueño = forms.CharField(label="Dueño", required=True)
-    descripcion = forms.CharField(label="descripcion", required=True, widget=forms.Textarea)
-    fecha = forms.DateField(label="fecha", required=True, widget=forms.TimeInput)
-    hora = forms.TimeField(label="hora", required=True)
