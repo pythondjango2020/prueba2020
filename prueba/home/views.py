@@ -9,3 +9,9 @@ def vista_base(request):
 
 def vista_index(request):
     return render(request, 'index.html')
+
+def vista_login(request):
+    return render(request, 'login.html')
+
+def vista_register(request):
+    return render(request, 'register.html')
