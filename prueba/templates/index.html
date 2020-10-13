@@ -121,79 +121,66 @@
                         <p>Para Solicitar una cita completa los siguientes datos:</p>
                     </div>
                     <div class="formulario">
-                        <form class="boton">
+                        <form class="boton" action='' method="POST">
+                            {% csrf_token %}
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Mascota</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Nombre de la mascota">
+                                {{form.mascota}}
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Tipo de Mascota</label>
-                                <select class="form-control" id="GET_tipos">
-                                    <option selected>Seleccione el tipo</option>
-                                </select>
+                                {{form.tipo}}
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Raza de la mascota</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option selected>Seleccione la raza</option>
-                                </select>
+                                {{form.raza}}
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Años o meses de la mascota</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option selected>Seleccione la edad</option>
-                                    <option>Entre 1 y 5 meses</option>
-                                    <option>Entre 6 y 12 meses</option>
-                                    <option>Entre 1 y 4 años</option>
-                                    <option>Entre 5 y 7 años</option>
-                                    <option>Entre 8 y 10 años</option>
-                                    <option>Entre 11 y 13 años</option>
-                                    <option>No sabe</option>
-                                </select>
+                                {{form.años}}
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Dueño</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Nombre del dueño">
+                                {{form.dueño}}
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Motivo de la consulta</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                    placeholder="Escriba una breve descripcion"></textarea>
+                               {{form.descripcion}}
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Fecha de Cita</label>
-                                <input type="date" class="form-control" id="exampleFormControlInput1">
+                                {{form.fecha}}
                                 <small>Dias de oficina de Lunes a Sabados</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Hora de Cita</label>
-                                <input type="time" min="8:00" max="18:00" step="600" required class="form-control"
-                                    id="exampleFormControlInput1">
+                                {{form.hora}}
                                 <small>Las horas de oficina son desde las 8 a 18 horas</small>
                             </div>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModalCenter">
                                 Solicitar Cita
-                              </button>
-                              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            </button>
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalCenterTitle">Solicitud enviada</h5>
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalCenterTitle">Solicitud enviada</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Su solicitud de cita fue creada con exito
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Salir</button>
+                                        </div>
                                     </div>
-                                    <div class="modal-body">
-                                        Su solicitud de cita fue creada con exito
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-                                    </div>
-                                  </div>
                                 </div>
-                              </div>
+                            </div>
                         </form>
                     </div>
                 </div>
